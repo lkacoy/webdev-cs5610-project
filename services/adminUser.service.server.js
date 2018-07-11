@@ -8,10 +8,10 @@ module.exports = function (app) {
 
     function createAdminUser(req, res) {
         var adminUser = req.body;
-        adminUserModel = {
+        adminUser = {
             username: adminUser.username,
         };
-        adminUser.createAdminUser(adminUser)
+        adminUserModel.createAdminUser(adminUser)
             .then(function(adminUser) {
                 res.json(adminUser);
             });
