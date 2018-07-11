@@ -11,7 +11,7 @@ module.exports = function (app) {
         blogFollowerModel = {
             username: blogFollower.username,
         };
-        blogFollower.createAdminUser(blogFollower)
+        blogFollower.createBlogFollower(blogFollower)
             .then(function(follower) {
                 res.json(follower);
             });

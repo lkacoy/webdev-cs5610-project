@@ -6,6 +6,21 @@ function createBlogWriter(writer) {
     return blogWriterModel.create(writer);
 }
 
+function findAllBlogWriters() {
+    return blogWriterModel.find({});
+}
+
+function findBlogWriterById(writerId) {
+    return blogWriterModel.findById(writerId);
+}
+
+function deleteBlogWriter(writerId) {
+    return blogWriterModel.delete(writerId);
+}
+
 module.exports = {
-    createBlogWriter: createBlogWriter
+    createBlogWriter: createBlogWriter,
+    findAllBlogWriters: findAllBlogWriters,
+    findBlogWriterById: findBlogWriterById,
+    deleteBlogWriter: deleteBlogWriter
 };
