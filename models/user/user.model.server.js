@@ -6,6 +6,21 @@ function createUser(user) {
     return userModel.create(user);
 }
 
+function findAllUsers() {
+    return userModel.find({});
+}
+
+function findUserById(userId) {
+    return userModel.findById(userId);
+}
+
+function deleteUser(userId) {
+    return userModel.delete(userId);
+}
+
 module.exports = {
-    createUser: createUser
+    createUser: createUser,
+    findAllUsers: findAllUsers,
+    findUserById: findUserById,
+    deleteUser: deleteUser
 };
