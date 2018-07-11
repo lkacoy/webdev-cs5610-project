@@ -8,10 +8,10 @@ module.exports = function (app) {
 
     function createBlogFollower(req, res) {
         var blogFollower = req.body;
-        blogFollowerModel = {
+        blogFollower = {
             username: blogFollower.username,
         };
-        blogFollower.createBlogFollower(blogFollower)
+        blogFollowerModel.createBlogFollower(blogFollower)
             .then(function(follower) {
                 res.json(follower);
             });
