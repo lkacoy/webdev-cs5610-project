@@ -6,6 +6,16 @@ function createAdminUser(adminUser) {
     return adminUserModel.create(adminUser);
 }
 
+function findAllAdminUsers() {
+    return adminUserModel.find({});
+}
+
+function findAdminUserById(adminUserId) {
+    return adminUserModel.findById(adminUserId);
+}
+
 module.exports = {
-    createAdminUser: createAdminUser
+    createAdminUser: createAdminUser,
+    findAllAdminUsers: findAllAdminUsers,
+    findAdminUserById: findAdminUserById
 };
