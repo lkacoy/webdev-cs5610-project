@@ -35,6 +35,12 @@ app.get('/', function (req, res) {
 
 
 
-/*require('./services/movie.service.server')(app);
-require('./services/form.service.server')(app);*/
+require('./services/adminUser.service.server.service.server')(app);
+require('./services/blogFollower.service.server.service.server')(app);
+require('./services/blogWriter.service.server.service.server.service.server')(app);
+require('./services/comment.service.server')(app);
+require('./services/post.service.server.service.server')(app);
+require('./services/share.service.server.service.server')(app);
+require('./services/user.service.server.service.server')(app);
+
 app.listen(3000);
