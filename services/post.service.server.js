@@ -2,7 +2,7 @@ module.exports = function (app) {
     app.post('/api/post', createPost);
     app.get('/api/post', findAllPosts);
     app.get('/api/post/:postId', findPostById);
-    app.get('/api/post/:username', findAllPostsByUsername);
+    app.get('/api/post/user/:username', findAllPostsByUsername);
     app.delete('/api/post/:postId', deletePost);
 
     var postModel = require('../models/post/post.model.server');

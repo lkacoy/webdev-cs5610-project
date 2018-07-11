@@ -2,7 +2,7 @@ module.exports = function (app) {
     app.post('/api/comment', createComment);
     app.get('/api/comment', findAllComments);
     app.get('/api/comment/:commentId', findCommentById);
-    app.get('/api/comment/:postId', findAllCommentsByPostId);
+    app.get('/api/comment/post/:postId', findAllCommentsByPostId);
     app.delete('/api/comment/:commentId', deleteComment);
 
     var commentModel = require('../models/comment/comment.model.server');
