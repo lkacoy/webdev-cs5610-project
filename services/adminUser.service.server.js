@@ -2,6 +2,7 @@ module.exports = function (app) {
     app.post('/api/adminUser', createAdminUser);
     app.get('/api/adminUser', findAllAdminUsers);
     app.get('/api/user/:userId', findAdminUserById);
+    app.delete('/api/user/:userId', deleteAdminUser);
 
     var adminUserModel = require('../models/adminUser/adminUser.model.server');
 
@@ -29,5 +30,10 @@ module.exports = function (app) {
             .then(function (user) {
                 res.json(user);
             })
+    }
+
+    function deleteAdminUser(req, res) {
+        var id = req.params['userId'];
+        adminUserModel.deleteAdminUser(id);
     }
 };

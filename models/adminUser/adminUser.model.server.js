@@ -14,8 +14,13 @@ function findAdminUserById(adminUserId) {
     return adminUserModel.findById(adminUserId);
 }
 
+function deleteAdminUser(adminUserId) {
+    return adminUserModel.delete(adminUserId);
+}
+
 module.exports = {
     createAdminUser: createAdminUser,
     findAllAdminUsers: findAllAdminUsers,
-    findAdminUserById: findAdminUserById
+    findAdminUserById: findAdminUserById,
+    deleteAdminUser: deleteAdminUser
 };
