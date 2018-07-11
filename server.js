@@ -30,8 +30,8 @@ require('./services/adminUser.service.server')(app);
 require('./services/blogFollower.service.server')(app);
 require('./services/blogWriter.service.server')(app);
 require('./services/comment.service.server')(app);
-require('./services/post.service.server.service.server')(app);
-require('./services/share.service.server.service.server')(app);
-require('./services/user.service.server.service.server')(app);
+require('./services/post.service.server')(app);
+require('./services/share.service.server')(app);
+require('./services/user.service.server')(app);
 
 app.listen(3000);
