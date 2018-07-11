@@ -6,6 +6,21 @@ function createBlogFollower(follower) {
     return blogFollowerModel.create(follower);
 }
 
+function findAllBlogFollowers() {
+    return blogFollowerModel.find({});
+}
+
+function findBlogFollowerById(followerId) {
+    return blogFollowerModel.findById(followerId);
+}
+
+function deleteBlogFollower(followerId) {
+    return blogFollowerModel.delete(followerId);
+}
+
 module.exports = {
-    createBlogFollower: createBlogFollower
+    createBlogFollower: createBlogFollower,
+    findAllBlogFollowers: findAllBlogFollowers,
+    findBlogFollowerById: findBlogFollowerById,
+    deleteBlogFollower: deleteBlogFollower
 };
