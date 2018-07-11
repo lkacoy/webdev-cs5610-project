@@ -20,24 +20,15 @@ app.use(function(req, res, next) {
     next();
 });
 
-var session = require('express-session')
-app.use(session({
-    resave: false,
-    saveUninitialized: true,
-    secret: 'any string'
-}));
-
 
 app.get('/', function (req, res) {
     res.send('Hello World')
-})
+});
 
 
-
-
-require('./services/adminUser.service.server.service.server')(app);
-require('./services/blogFollower.service.server.service.server')(app);
-require('./services/blogWriter.service.server.service.server.service.server')(app);
+require('./services/adminUser.service.server')(app);
+require('./services/blogFollower.service.server')(app);
+require('./services/blogWriter.service.server')(app);
 require('./services/comment.service.server')(app);
 require('./services/post.service.server.service.server')(app);
 require('./services/share.service.server.service.server')(app);
