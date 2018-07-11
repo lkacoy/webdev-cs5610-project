@@ -8,10 +8,10 @@ module.exports = function (app) {
 
     function createBlogWriter(req, res) {
         var blogWriter = req.body;
-        blogWriterModel = {
+        blogWriter = {
             username: blogWriter.username,
         };
-        blogWriter.createBlogWriter(blogWriter)
+        blogWriterModel.createBlogWriter(blogWriter)
             .then(function(writer) {
                 res.json(writer);
             });
