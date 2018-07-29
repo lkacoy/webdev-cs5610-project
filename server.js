@@ -34,4 +34,4 @@ require('./services/post.service.server')(app);
 require('./services/share.service.server')(app);
 require('./services/user.service.server')(app);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
