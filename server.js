@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://admin:admin@ds159631.mlab.com:59631/heroku_kw3mvrqs');
+mongoose.connect('mongodb://admin:admin1@ds159631.mlab.com:59631/heroku_kw3mvrqs');
 
 
 app.use(bodyParser.json()); // for parsing application/json
