@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var blogWriterSchema = require('./blogWriter.schema.server');
+var blogWriterSchema = require('../user/user.schema.server');
 var blogWriterModel = mongoose.model('BlogWriterModel', blogWriterSchema);
 
 function createBlogWriter(writer) {

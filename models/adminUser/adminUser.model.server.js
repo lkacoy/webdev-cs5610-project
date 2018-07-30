@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var adminUserSchema = require('./adminUser.schema.server');
+var adminUserSchema = require('../user/user.schema.server');
 var adminUserModel = mongoose.model('AdminUserModel', adminUserSchema);
 
 function createAdminUser(adminUser) {

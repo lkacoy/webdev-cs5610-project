@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var blogFollowerSchema = require('./blogFollower.schema.server');
+var blogFollowerSchema = require('../user/user.schema.server');
 var blogFollowerModel = mongoose.model('BlogFollowerModel', blogFollowerSchema);
 
 function createBlogFollower(follower) {

@@ -4,6 +4,12 @@ var userSchema = monogoose.Schema({
     password: String,
     firstName: String,
     lastName: String,
-    email: String
+    email: String,
+    role: String,
+    isAdmin: { type: Boolean, default: false },
+    lastLogin: { type: Date, default: Date.now },
+    topic: String,
+    dateOfBirth: {type: Date},
+    status: String
 }, {collection: 'user'});
 module.exports = userSchema;
