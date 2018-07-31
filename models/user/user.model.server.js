@@ -22,10 +22,15 @@ function findUserByCredentials(credentials) {
     return userModel.findOne(credentials);
 }
 
+function findUserByName(username) {
+    return userModel.findOne({username: username });
+}
+
 module.exports = {
     createUser: createUser,
     findAllUsers: findAllUsers,
     findUserById: findUserById,
     deleteUser: deleteUser,
-    findUserByCredentials: findUserByCredentials
+    findUserByCredentials: findUserByCredentials,
+    findUserByName: findUserByName
 };

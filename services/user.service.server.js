@@ -34,13 +34,19 @@ module.exports = function (app) {
 
     function createUser(req, res) {
         var user = req.body;
-        user = {
-            username: user.username,
-        };
-        userModel.createUser(user)
-            .then(function(user) {
-                res.json(user);
-            });
+        userModel.findUserByName(user.username)
+            .then(function (user) {
+                console.log(user);
+                if (user != null && user._id != null) {
+                    res.json({error:'User already exists!'});
+                }
+            })
+            .then(
+                userModel.createUser(user)
+                    .then(function (user) {
+                        req.session['currentUser'] = user;
+                        res.send(user);
+                    }));
     }
 
     function findAllUsers(req, res) {
