@@ -6,7 +6,6 @@ var userSchema = monogoose.Schema({
     lastName: String,
     email: String,
     role: String,
-    isAdmin: { type: Boolean, default: false },
     lastLogin: { type: Date, default: Date.now },
     topic: String,
     dateOfBirth: {type: Date},
