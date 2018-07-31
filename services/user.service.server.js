@@ -1,5 +1,5 @@
 module.exports = function (app) {
-    app.post('/api/user', createUser);
+    app.post('/api/register', createUser);
     app.get('/api/user', findAllUsers);
     app.get('/api/user/:userId', findUserById);
     app.delete('/api/user/:userId', deleteUser);
