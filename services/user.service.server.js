@@ -3,8 +3,29 @@ module.exports = function (app) {
     app.get('/api/user', findAllUsers);
     app.get('/api/user/:userId', findUserById);
     app.delete('/api/user/:userId', deleteUser);
+    app.post('/api/logout', logout);
+    app.post('/api/login', login);
 
     var userModel = require('../models/user/user.model.server');
+
+    function login(req, res) {
+        var credentials = req.body;
+        userModel
+            .findUserByCredentials(credentials)
+            .then(function (user) {
+                if (user == null) {
+                    res.json({error:'Unable to login'});
+                } else {
+                    req.session['currentUser'] = user;
+                    res.json(user);
+                }
+            })
+    }
+
+    function logout(req, res) {
+        req.session.destroy();
+        res.send(200);
+    }
 
     function createUser(req, res) {
         var user = req.body;

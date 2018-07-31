@@ -18,9 +18,14 @@ function deleteUser(userId) {
     return userModel.delete(userId);
 }
 
+function findUserByCredentials(credentials) {
+    return userModel.findOne(credentials);
+}
+
 module.exports = {
     createUser: createUser,
     findAllUsers: findAllUsers,
     findUserById: findUserById,
-    deleteUser: deleteUser
+    deleteUser: deleteUser,
+    findUserByCredentials: findUserByCredentials
 };
