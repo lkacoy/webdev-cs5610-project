@@ -6,6 +6,7 @@ module.exports = function (app) {
     app.get('/api/profile', profile);
     app.post('/api/logout', logout);
     app.post('/api/login', login);
+    app.put('/api/profile', updateUser);
 
     var userModel = require('../models/user/user.model.server');
 
@@ -55,6 +56,16 @@ module.exports = function (app) {
                 res.send(users);
             });
     }
+
+
+    function updateUser(req, res) {
+        userModel.updateUser(req.session['currentUser'], req.body)
+            .then(function (user) {
+                req.session['currentUser'] = user;
+                res.send(user);
+            });
+    }
+
 
     function findUserById(req, res) {
         var id = req.params['userId'];

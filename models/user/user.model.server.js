@@ -26,11 +26,17 @@ function findUserByName(username) {
     return userModel.findOne({username: username });
 }
 
+function updateUser(currentUser, newUser) {
+    var query = {'username': currentUser.username, "password": currentUser.password};
+    return userModel.findOneAndUpdate(query, newUser);
+}
+
 module.exports = {
     createUser: createUser,
     findAllUsers: findAllUsers,
     findUserById: findUserById,
     deleteUser: deleteUser,
     findUserByCredentials: findUserByCredentials,
-    findUserByName: findUserByName
+    findUserByName: findUserByName,
+    updateUser: updateUser
 };
