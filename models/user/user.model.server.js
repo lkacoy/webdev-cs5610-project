@@ -15,7 +15,8 @@ function findUserById(userId) {
 }
 
 function deleteUser(user) {
-    var query = {'username': user.username};
+    console.log(user);
+    var query = {'username': user};
     return userModel.findOneAndRemove(query);
 }
 

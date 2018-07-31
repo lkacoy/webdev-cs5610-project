@@ -78,6 +78,6 @@ module.exports = function (app) {
     function deleteUser(req, res) {
         userModel.deleteUser(req.session['currentUser']);
         req.session.destroy();
-        res.send('user deleted');
+        res.json({message:'User deleted'});
     }
 };
