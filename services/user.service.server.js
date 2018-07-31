@@ -2,11 +2,11 @@ module.exports = function (app) {
     app.post('/api/register', createUser);
     app.get('/api/user', findAllUsers);
     app.get('/api/user/:userId', findUserById);
-    app.delete('/api/user/:userId', deleteUser);
     app.get('/api/profile', profile);
     app.post('/api/logout', logout);
     app.post('/api/login', login);
     app.put('/api/profile', updateUser);
+    app.delete('/api/profile', deleteUser);
 
     var userModel = require('../models/user/user.model.server');
 
@@ -76,7 +76,8 @@ module.exports = function (app) {
     }
 
     function deleteUser(req, res) {
-        var id = req.params['userId'];
-        userModel.deleteUser(id);
+        userModel.deleteUser(req.session['currentUser']);
+        req.session.destroy();
+        res.send('user deleted');
     }
 };

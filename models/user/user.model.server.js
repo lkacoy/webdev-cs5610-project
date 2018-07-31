@@ -14,8 +14,9 @@ function findUserById(userId) {
     return userModel.findById(userId);
 }
 
-function deleteUser(userId) {
-    return userModel.delete(userId);
+function deleteUser(user) {
+    var query = {'username': user.username};
+    return userModel.findOneAndRemove(query);
 }
 
 function findUserByCredentials(credentials) {
