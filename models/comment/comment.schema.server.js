@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var commentSchema = mongoose.Schema({
-    commentId: Number,
+    commentId: {type: mongoose.Schema.Types.ObjectId},
     comment: String,
     postId: {type: mongoose.Schema.Types.ObjectId},
     username: String,
