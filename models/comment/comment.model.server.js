@@ -19,7 +19,7 @@ function findAllCommentsByPostId(postId) {
 }
 
 function deleteComment(comment) {
-    return commentModel.delete(comment);
+    return commentModel.deleteOne(comment);
 }
 
 

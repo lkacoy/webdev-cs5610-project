@@ -3,7 +3,7 @@ module.exports = function (app) {
     app.get('/api/comment', findAllComments);
     app.get('/api/comment/:commentId', findCommentById);
     app.get('/api/comment/post/:postId', findAllCommentsByPostId);
-    app.delete('/api/comment/:commentId', deleteComment);
+    app.delete('/api/comment', deleteComment);
 
     var commentModel = require('../models/comment/comment.model.server');
 
@@ -41,7 +41,14 @@ module.exports = function (app) {
     }
 
     function deleteComment(req, res) {
-        var id = req.params['commentId'];
-        commentModel.deleteComment(id);
+        var comment = req.body;
+        var user = req.session['currentUser'].username;
+        if (user && comment.username != user) {
+            res.json({error: "User can not delete another user's comment"});
+        } else {
+            commentModel.deleteComment(id).then(
+                res.status(200)
+            );
+        }
     }
 };
