@@ -1,8 +1,8 @@
-var monogoose = require('mongoose');
-var commentSchema = monogoose.Schema({
+var mongoose = require('mongoose');
+var commentSchema = mongoose.Schema({
     commentId: Number,
     comment: String,
-    postId: Number,
+    postId: {type: mongoose.Schema.Types.ObjectId},
     username: String,
     dateCreate: {type: Date, default: Date.now()}
 }, {collection: 'comment'});

@@ -9,9 +9,8 @@ module.exports = function (app) {
 
     function createComment(req, res) {
         var comment = req.body;
-        comment = {
-            username: comment.username,
-        };
+        var user = req.session['currentUser'].username;
+        comment.username = user;
         commentModel.createComment(comment)
             .then(function(comment) {
                 res.json(comment);
