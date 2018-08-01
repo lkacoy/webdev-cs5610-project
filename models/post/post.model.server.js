@@ -18,8 +18,9 @@ function findAllPostsByUsername(username) {
     return postModel.find({username: username});
 }
 
-function deletePost(postId) {
-    return postModel.deleteOne(postId);
+function deletePost(post) {
+    console.log(post);
+    return postModel.deleteOne({_id: post._id});
 }
 
 module.exports = {
