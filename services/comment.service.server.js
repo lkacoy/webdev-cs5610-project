@@ -46,7 +46,7 @@ module.exports = function (app) {
         if (comment.username != user && user !='admin') {
             res.json({error: "User can not delete another user's comment"});
         } else {
-            commentModel.deleteComment(id).then(
+            commentModel.deleteComment(comment).then(
                 res.status(200)
             );
         }
