@@ -43,7 +43,7 @@ module.exports = function (app) {
     function deleteComment(req, res) {
         var comment = req.body;
         var user = req.session['currentUser'].username;
-        if (user && comment.username != user) {
+        if (user && comment.username != user && user !='admin') {
             res.json({error: "User can not delete another user's comment"});
         } else {
             commentModel.deleteComment(id).then(
