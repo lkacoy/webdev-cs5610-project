@@ -9,9 +9,8 @@ module.exports = function (app) {
 
     function createPost(req, res) {
         var post = req.body;
-        post = {
-            username: post.username,
-        };
+        var user = req.session['currentUser'].username;
+        post.username = user;
         postModel.createPost(post)
             .then(function(post) {
                 res.json(post);

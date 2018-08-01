@@ -11,7 +11,7 @@ function findAllPosts() {
 }
 
 function findPostById(postId) {
-    return postModel.findById(postId);
+    return postModel.find({_id: postId});
 }
 
 function findAllPostsByUsername(username) {
