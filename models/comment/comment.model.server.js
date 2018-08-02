@@ -22,11 +22,17 @@ function deleteComment(comment) {
     return commentModel.deleteOne(comment);
 }
 
+function updateComment(comment) {
+    var query = {'_id': comment._id, 'username': comment.username};
+    return commentModel.findOneAndUpdate(query, comment);
+}
+
 
 module.exports = {
     createComment: createComment,
     findAllComments: findAllComments,
     findCommentById: findCommentById,
     findAllCommentsByPostId, findAllCommentsByPostId,
-    deleteComment: deleteComment
+    deleteComment: deleteComment,
+    updateComment: updateComment
 };
