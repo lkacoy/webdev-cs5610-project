@@ -23,10 +23,26 @@ function deletePost(post) {
     return postModel.deleteOne({_id: post._id});
 }
 
+function searchPosts(query) {
+    let newQuery = {};
+    if (query.username != '') {
+        newQuery.username = query.username;
+    }
+    if (query.topic != '') {
+        newQuery.topic = query.topic;
+    }
+    if (query.title != '') {
+        newQuery.title = query.title;
+    }
+    console.log(newQuery);
+    return postModel.find(newQuery);
+}
+
 module.exports = {
     createPost: createPost,
     findAllPosts: findAllPosts,
     findPostById: findPostById,
     findAllPostsByUsername: findAllPostsByUsername,
-    deletePost: deletePost
+    deletePost: deletePost,
+    searchPosts: searchPosts
 };
