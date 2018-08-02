@@ -50,8 +50,13 @@ function setSession(req, res) {
 
 function getSession(req, res) {
     var name = req.params['name'];
-    var value = req.session[name];
-    res.send(value);
+    var value;
+    if (req.session[name]) {
+        value = req.session[name];
+    } else{
+        value = {error: 'No session'};
+    }
+    res.json(value);
 }
 
 
