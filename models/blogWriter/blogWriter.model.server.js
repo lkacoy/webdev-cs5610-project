@@ -7,7 +7,7 @@ function createBlogWriter(writer) {
 }
 
 function findAllBlogWriters() {
-    return blogWriterModel.find({});
+    return blogWriterModel.find({'role': 'blogWriter'});
 }
 
 function findBlogWriterById(writerId) {
