@@ -47,7 +47,7 @@ module.exports = function (app) {
             res.json({error: "User can not delete another user's comment"});
         } else {
             commentModel.deleteComment(comment).then(
-                res.status(200)
+                res.json({message: "Comment deleted"})
             );
         }
     }
