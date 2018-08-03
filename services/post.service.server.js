@@ -5,6 +5,7 @@ module.exports = function (app) {
     app.get('/api/post/user/:username', findAllPostsByUsername);
     app.delete('/api/post', deletePost);
     app.post('/api/post/search', searchPosts);
+    app.put('/api/post', updatePost);
 
     var postModel = require('../models/post/post.model.server');
 
@@ -53,6 +54,13 @@ module.exports = function (app) {
         var query = req.body;
         postModel.searchPosts(query).then(function (posts) {
             res.json(posts);
+        })
+    }
+
+    function updatePost(req, res) {
+        var post = req.body;
+        postModel.updatePost(post).then(function (post) {
+            res.json(post);
         })
     }
 };

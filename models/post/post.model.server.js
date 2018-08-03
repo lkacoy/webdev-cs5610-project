@@ -38,11 +38,17 @@ function searchPosts(query) {
     return postModel.find(newQuery);
 }
 
+function updatePost(post) {
+    var query = {'username': post.username, "title": post.title};
+    return postModel.findOneAndUpdate(query, post);
+}
+
 module.exports = {
     createPost: createPost,
     findAllPosts: findAllPosts,
     findPostById: findPostById,
     findAllPostsByUsername: findAllPostsByUsername,
     deletePost: deletePost,
-    searchPosts: searchPosts
+    searchPosts: searchPosts,
+    updatePost: updatePost
 };
