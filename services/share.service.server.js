@@ -10,9 +10,6 @@ module.exports = function (app) {
 
     function createShare(req, res) {
         var share = req.body;
-        share = {
-            username: share.username,
-        };
         shareModel.createShare(share)
             .then(function(share) {
                 res.json(share);
