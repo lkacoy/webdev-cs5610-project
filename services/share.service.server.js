@@ -3,7 +3,7 @@ module.exports = function (app) {
     app.get('/api/share', findAllShares);
     app.get('/api/share/:shareId', findShareById);
     app.get('/api/share/user/:username', findAllSharesByUsername);
-    app.get('/api/share/:postId', findAllSharesForPost);
+    app.get('/api/share/post/:postId', findAllSharesForPost);
     app.delete('/api/share/:shareId', deleteShare);
 
     var shareModel = require('../models/share/share.model.server');
