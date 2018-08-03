@@ -34,6 +34,7 @@ function searchPosts(query) {
     if (query.title != '') {
         newQuery.title = query.title;
     }
+    newQuery.published = query.published;
     console.log(newQuery);
     return postModel.find(newQuery);
 }
