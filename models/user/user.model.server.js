@@ -20,6 +20,11 @@ function deleteUser(user) {
     return userModel.findOneAndRemove(query);
 }
 
+function adminDeleteUser(userId) {
+    var query = {'_id': userId};
+    return userModel.deleteOne(query);
+}
+
 function findUserByCredentials(credentials) {
     return userModel.findOne(credentials);
 }
@@ -33,6 +38,12 @@ function updateUser(currentUser, newUser) {
     return userModel.findOneAndUpdate(query, newUser);
 }
 
+function adminUpdateUser(user) {
+    var query = {'_id': user._id};
+    console.log(query);
+    return userModel.findOneAndUpdate(query, user);
+}
+
 module.exports = {
     createUser: createUser,
     findAllUsers: findAllUsers,
@@ -40,5 +51,7 @@ module.exports = {
     deleteUser: deleteUser,
     findUserByCredentials: findUserByCredentials,
     findUserByName: findUserByName,
-    updateUser: updateUser
+    updateUser: updateUser,
+    adminDeleteUser: adminDeleteUser,
+    adminUpdateUser: adminUpdateUser
 };
