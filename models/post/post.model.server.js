@@ -25,16 +25,20 @@ function deletePost(post) {
 
 function searchPosts(query) {
     let newQuery = {};
-    if (query.username != '') {
+    if (query.username && query.username != '') {
         newQuery.username = query.username;
     }
-    if (query.topic != '') {
+    if (query.topic && query.topic != '') {
         newQuery.topic = query.topic;
     }
-    if (query.title != '') {
-        newQuery.title = query.title;
+    if (query.postTitle && query.postTitle != '') {
+        newQuery.postTitle = query.postTitle;
     }
-    newQuery.published = query.published;
+
+    if (query.published) {
+        newQuery.published = query.published;
+    }
+
     console.log(newQuery);
     return postModel.find(newQuery);
 }
