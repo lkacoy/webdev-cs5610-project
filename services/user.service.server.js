@@ -42,14 +42,17 @@ module.exports = function (app) {
                 console.log(user);
                 if (user != null && user._id != null) {
                     res.json({error:'User already exists!'});
+                    return;
+                } else {
+                    userModel.createUser(user)
+                        .then(function (user) {
+                            req.session['currentUser'] = user;
+                            res.send(user);
+                        });
                 }
-            })
-            .then(
-                userModel.createUser(user)
-                    .then(function (user) {
-                        req.session['currentUser'] = user;
-                        res.send(user);
-                    }));
+
+            });
+
     }
 
     function findAllUsers(req, res) {
