@@ -9,6 +9,7 @@ module.exports = function (app) {
     app.delete('/api/profile', deleteUser);
     app.delete('/api/profile/admin/:userId', adminDeleteUser);
     app.put('/api/profile/admin', adminUpdateUser);
+    app.post('/api/admin', adminCreateUser);
 
     var userModel = require('../models/user/user.model.server');
 
@@ -36,15 +37,15 @@ module.exports = function (app) {
     }
 
     function createUser(req, res) {
-        var user = req.body;
-        userModel.findUserByName(user.username)
+        var newUser = req.body;
+        userModel.findUserByName(newUser.username)
             .then(function (user) {
                 console.log(user);
                 if (user != null && user._id != null) {
                     res.json({error:'User already exists!'});
                     return;
                 } else {
-                    userModel.createUser(user)
+                    userModel.createUser(newUser)
                         .then(function (user) {
                             req.session['currentUser'] = user;
                             res.send(user);
@@ -53,6 +54,24 @@ module.exports = function (app) {
 
             });
 
+    }
+
+    function adminCreateUser(req, res) {
+        var newUser = req.body;
+        userModel.findUserByName(newUser.username)
+            .then(function (user) {
+                console.log(user);
+                if (user != null && user._id != null) {
+                    res.json({error:'User already exists!'});
+                    return;
+                } else {
+                    userModel.createUser(newUser)
+                        .then(function (user) {
+                            res.send(user);
+                        });
+                }
+
+            });
     }
 
     function findAllUsers(req, res) {
